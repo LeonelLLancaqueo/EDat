@@ -23,7 +23,7 @@ public class TablaBusquedaHash {
         //DADA UN ELEMENTO DE TIPO CLAVE PASADO POR PARAMETRO DEVUELVE EL DATO ASOCIADO, SI ES QUE EXISTE LA CLAVE EN LA TABLA
         Object dato= null;
         if(this.cant != 0){
-            int pos= Math.abs(elem.hashCode() % this.TAM);
+            int pos= Math.abs(elem.hashCode() % TablaBusquedaHash.TAM);
             NodoHashDicc aux= this.tabla[pos];
             while(dato == null && aux!= null){
                 if(aux.getClave().equals(elem)){
@@ -37,7 +37,7 @@ public class TablaBusquedaHash {
     
     public boolean insertar(Object nuevoElem, Object dato){
         boolean encontrado= false;
-        int pos= Math.abs(nuevoElem.hashCode() % this.TAM);
+        int pos= Math.abs(nuevoElem.hashCode() % TablaBusquedaHash.TAM);
         NodoHashDicc aux= this.tabla[pos];
         while(!encontrado && aux != null){
             encontrado= aux.getClave().equals(nuevoElem);
@@ -56,7 +56,7 @@ public class TablaBusquedaHash {
     public boolean eliminar(Object elem){
         boolean encontrado= false;
         if(this.cant != 0){
-            int pos= Math.abs(elem.hashCode() % this.TAM);
+            int pos= Math.abs(elem.hashCode() % TablaBusquedaHash.TAM);
             NodoHashDicc aux= this.tabla[pos];
             NodoHashDicc aux2= null;
             while(!encontrado && aux!= null){
@@ -75,7 +75,7 @@ public class TablaBusquedaHash {
     public boolean existeClave(Object elem){
         boolean encontrado= false;
         if(this.cant != 0){
-            int pos= Math.abs(elem.hashCode() % this.TAM);
+            int pos= Math.abs(elem.hashCode() % TablaBusquedaHash.TAM);
             NodoHashDicc aux= this.tabla[pos];
 
             while(!encontrado && aux!= null){
@@ -90,7 +90,7 @@ public class TablaBusquedaHash {
         Lista lis= new Lista();
         if(this.cant != 0){
             int cont=0, i=0;
-            while(i<= (this.TAM-1) && cont <= this.cant){
+            while(i<= (TablaBusquedaHash.TAM-1) && cont <= this.cant){
                 NodoHashDicc aux= this.tabla[i];
                 while(aux!= null){
                     lis.insertar(aux.getClave(), lis.longitud()+1);
@@ -107,7 +107,7 @@ public class TablaBusquedaHash {
         Lista lis= new Lista();
         if(this.cant != 0){
             int cont=0, i=0;
-            while(i<= (this.TAM-1) && cont <= this.cant){
+            while(i<= (TablaBusquedaHash.TAM-1) && cont <= this.cant){
                 NodoHashDicc aux= this.tabla[i];
                 while(aux!= null){
                     lis.insertar(aux.getDato(), lis.longitud()+1);
@@ -124,7 +124,7 @@ public class TablaBusquedaHash {
         String s= "";
         if(this.cant != 0 ){
             int cont=0, i=0;
-            while(i<= (this.TAM-1) && cont <= this.cant){
+            while(i<= (TablaBusquedaHash.TAM-1) && cont <= this.cant){
                 NodoHashDicc aux= this.tabla[i];
                 while(aux!= null){
                     s+= aux.toString();

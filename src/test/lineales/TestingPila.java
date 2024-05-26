@@ -6,7 +6,7 @@
 package test.lineales;
 
 
-import lineales.estaticas.Pila;
+import lineales.dinamicas.Pila;
 
 /**
  *

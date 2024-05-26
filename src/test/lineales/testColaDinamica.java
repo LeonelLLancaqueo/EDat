@@ -27,14 +27,14 @@ public class testColaDinamica {
         unaColaDinamica.poner('b');
         System.out.println("cola: "+ unaColaDinamica.toString());
         System.out.println("A continuacion sacamos todos los elementos: ");
-        System.out.print("espera true: ");unaColaDinamica.sacar();
-        System.out.print("\nespera true: ");unaColaDinamica.sacar();
-        System.out.print("\nespera true: ");unaColaDinamica.sacar();
-        System.out.print("\nespera true: ");unaColaDinamica.sacar();
-        System.out.print("\nespera true: ");unaColaDinamica.sacar();
-        System.out.print("\nespera true: ");unaColaDinamica.sacar();
-        System.out.print("\nespera false: ");unaColaDinamica.sacar();
-        System.out.println("\nespera false: ");unaColaDinamica.sacar();      
+        System.out.print("espera true: "+ unaColaDinamica.sacar());
+        System.out.print("espera true: "+ unaColaDinamica.sacar());
+        System.out.print("espera true: "+ unaColaDinamica.sacar());
+        System.out.print("espera true: "+ unaColaDinamica.sacar());
+        System.out.print("espera true: "+ unaColaDinamica.sacar());
+        System.out.print("espera true: "+ unaColaDinamica.sacar());
+        System.out.print("\nespera false: "+ unaColaDinamica.sacar());
+        System.out.print("\nespera false: "+ unaColaDinamica.sacar());
         System.out.println("cola: "+ unaColaDinamica.toString());
         System.out.println("la cola esta vacia: " + unaColaDinamica.esVacia());
         
@@ -49,6 +49,7 @@ public class testColaDinamica {
         unaNuevaColaDinamica.sacar();
         unaNuevaColaDinamica.poner(5);
         unaNuevaColaDinamica.poner(5);
-        System.out.println("cola: "+ unaNuevaColaDinamica.toString());
+        System.out.println("cola clone: "+ unaNuevaColaDinamica.toString());
+        System.out.println("cola original:" + unaColaDinamica.toString());
     }
 }

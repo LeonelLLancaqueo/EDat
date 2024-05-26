@@ -5,7 +5,7 @@
  */
 package TDA;
 
-import lineales.dinamicas.Lista;
+
 
 /**
  *

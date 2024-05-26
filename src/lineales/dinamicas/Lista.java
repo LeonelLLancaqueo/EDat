@@ -15,8 +15,8 @@ public class Lista {
 
 
     public Lista(){
-        cabecera= null;
-        longitud=0;
+        this.cabecera= null;
+        this.longitud=0;
     }
     
     public void insertarPosterior(Object valor1, Object valor2){
@@ -82,14 +82,19 @@ public class Lista {
     
     public boolean insertar(Object elemento, int pos){
         
-        boolean insertado= true;
-        if(pos < 1 || pos > this.longitud+1){
-            insertado= false;
-        }else{
+        boolean insertado= false;
+        if(pos > 0 && pos < this.longitud+2){
             Nodo otroNodo= new Nodo(elemento);
             if(pos == 1){
-                otroNodo.setEnlace(this.cabecera);
-                this.cabecera= otroNodo;
+                // si se intenta insertar el elemento en la posicion 1
+                if(this.cabecera == null){
+                    //si no hay elementos en la lista
+                    this.cabecera= otroNodo;
+                }else{
+                    //si hay elementos en la lista
+                    otroNodo.setEnlace(this.cabecera);
+                    this.cabecera= otroNodo;
+                }
             }else{
                 Nodo nodoAux= this.cabecera; //tomamos la cabecera  para iterar sobre la lista
                 int i= 1;
@@ -102,8 +107,8 @@ public class Lista {
                 otroNodo.setEnlace(nodoAux.getEnlace());
                 nodoAux.setEnlace(otroNodo);
             }
-
             this.longitud++;
+            insertado= true;   
         }
         
         return insertado;
@@ -112,23 +117,33 @@ public class Lista {
         boolean eliminado= false;
         if(pos > 0 && pos <= this.longitud){
             if(pos == 1){
-                this.cabecera= this.cabecera.getEnlace();
+                if(this.cabecera != null){
+                    //si hay un elemento en la lista
+                    this.cabecera= this.cabecera.getEnlace();    
+                    
+                    eliminado = true;
+                    this.longitud--;
+                }
             }else{
                 Nodo nodoAux= this.cabecera;
                 
                 int i=1;
-                while(i <= pos-1){
+                
+                while(i < pos-1){
+                    //recorre los nodos hasta el nodo previo a ser eliminado
                     nodoAux= nodoAux.getEnlace();
                     i++;
                 }
                 if(pos == this.longitud){
+                    //si el elemento a eliminar es el ultimo
                     nodoAux.setEnlace(null);
                 }else{
                     nodoAux.setEnlace(nodoAux.getEnlace().getEnlace());
                 }
+                eliminado = true;
+                this.longitud--;
             }
-            eliminado = true;
-            this.longitud--;
+            
         }
         return eliminado;
     }

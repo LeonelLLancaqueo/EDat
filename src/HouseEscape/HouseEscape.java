@@ -42,9 +42,9 @@ public class HouseEscape {
     
     private void cargaInicial(){
         /*METODO Q PERMITE REALIZAR LA CARGA INICIAL DEL JUEGO A TRAVES DE LA LECTURA DE UN ARCHIVO DE DATOS*/
-        
+
         try {
-            BufferedReader br= new BufferedReader(new FileReader("C:\\Users\\Leonel LLancaqueo\\Desktop\\Materias\\Segundo Año\\PrimerCuatrimestre\\Estructuras de Datos\\cargaInicialDefinitiva.txt"));
+            BufferedReader br= new BufferedReader(new FileReader("/home/leonel/Desktop/leo/Materias/Segundo Año/PrimerCuatrimestre/Estructuras de Datos/cargaInicialDefinitiva.txt"));
 
             String lineas;
             while((lineas = br.readLine()) != null){
@@ -56,7 +56,9 @@ public class HouseEscape {
                     case 'P': System.out.println("Puerta cargada: "+ this.insertarPuerta(Integer.parseInt(tokens.nextToken()), Integer.parseInt(tokens.nextToken()), Integer.parseInt(tokens.nextToken())));break;
                     case 'A': System.out.println("Desafio cargado a equipo: "+ this.insertarDesafioAEquipo(tokens.nextToken(), Integer.parseInt(tokens.nextToken())));break;
                 }
+            
             }
+            br.close();
         } catch (IOException e) {
             System.out.println("Direccion invalida");
         }
@@ -64,10 +66,12 @@ public class HouseEscape {
     
     private void escribirLog(String texto){
          try {
-            BufferedWriter cambios= new BufferedWriter(new FileWriter("C:\\Users\\Leonel LLancaqueo\\Desktop\\Materias\\Segundo Año\\PrimerCuatrimestre\\Estructuras de Datos\\cambios.txt"));
+            BufferedWriter cambios= new BufferedWriter(new FileWriter("/home/leonel/Desktop/leo/Materias/Segundo Año/PrimerCuatrimestre/Estructuras de Datos/cambios.txt"));
             cambios.write(texto);
             cambios.newLine();
             cambios.flush();
+            //cerramos el buffer
+            cambios.close();
          } catch (IOException e) {
             System.out.println("Direccion invalida");
         }

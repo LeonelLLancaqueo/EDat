@@ -1,6 +1,6 @@
 package test.lineales;
  
-import lineales.dinamicas.Cola;
+import lineales.estaticas.Cola;
 public class TestingCola {
 
 	// 
@@ -19,7 +19,7 @@ public class TestingCola {
 
 	public static void testCola() {
 		System.out.println("COMIENZO TEST COLA");
-		Cola q1 = new Cola();
+		Cola q1 = new Cola(10);
 		System.out.println("Cola vac�a: \t\t\t\t\t\t\t--> " + q1.toString());
 		boolean exito = true;
 
